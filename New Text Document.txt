@@ -1,0 +1,23 @@
+import  os
+
+
+ls = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O','P','Q','R','S','T','U','V', 'W', 'X', 'Y','Z']
+cnt1=1
+cnt2=1
+for folder in ls:
+    for count, filename in enumerate(os.listdir(folder)):
+        if filename.endswith(".jpg"):
+            dst = f"test_{folder}_{str(cnt1)}.jpg"
+            src =f"{folder}/{filename}"  # foldername/filename, if .py file is outside folder
+            dst =f"{folder}/{dst}"
+            os.rename(src, dst)
+            cnt1+=1
+        else:
+            dst = f"test_{folder}_{str(cnt2)}.xml"
+            src =f"{folder}/{filename}"  # foldername/filename, if .py file is outside folder
+            dst =f"{folder}/{dst}"
+            cnt2+=1
+
+        # rename() function will
+        # rename all the files
+os.rename(src, dst)
